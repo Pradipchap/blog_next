@@ -1,6 +1,18 @@
-import Eachblog from "@/components/Eachblog";
-import Image from "next/image";
+import { getServerSession } from "next-auth";
+// import { Image } from "next/image";
+import { Options } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
-  return <h1>home</h1>;
+export default async function Home() {
+  const session = await getServerSession(Options);
+
+  //for client side session
+  // first import useSession hook
+  //then
+  // const {data:session}=useSession()
+
+  return (
+    <div>
+      <pre>{JSON.stringify(session)}</pre>
+    </div>
+  );
 }
