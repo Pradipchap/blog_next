@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth";
 // import { Image } from "next/image";
 import { Options } from "./api/auth/[...nextauth]/route";
+import SigninCard from "@/components/SigninCard";
 
 export default async function Home() {
-  const session = await getServerSession(Options);
+  
 
   //for client side session
   // first import useSession hook
@@ -12,7 +13,8 @@ export default async function Home() {
 
   return (
     <div>
-      <pre>{JSON.stringify(session)}</pre>
+
+Home
     </div>
   );
 }

@@ -2,13 +2,11 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-
-export const  Options= {
+export const Options = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      
     }),
 
     CredentialsProvider({
@@ -26,12 +24,14 @@ export const  Options= {
           return users;
         },
       },
-    }),
+    }
+    
+    ),
   ],
-  secret:process.env.NEXTAUTH_SECRET,
-  url:process.env.NEXTAUTH_URL,
 
-}
+  secret: process.env.NEXTAUTH_SECRET,
+  url: process.env.NEXTAUTH_URL,
+};
 const handler = NextAuth(Options);
 
 export { handler as GET, handler as POST };

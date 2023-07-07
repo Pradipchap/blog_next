@@ -3,7 +3,7 @@ import React from 'react'
 import { signIn,useSession } from 'next-auth/react'
 const SigninCard = () => {
 const {data:session}=useSession()
-session&&console.log(data)
+session&&console.log(session)
   return (
 
 <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 ">
@@ -34,7 +34,7 @@ session&&console.log(data)
 
     <div className="w-full flex flex-col gap-3 justify-center items-center mt-3">
         <p>Or</p>
-    <button type='button' onClick={()=>{signIn}} className='bg-red-800 text-white py-1 px-4 rounded-md my-3 hover:bg-red-950'>Sign In using Google</button>
+    <button type='button' onClick={()=>{signIn('google',{callbackUrl:"https://pradipchapagain.com.np"})}} className='bg-red-800 text-white py-1 px-4 rounded-md my-3 hover:bg-red-950'>Sign In using Google</button>
     </div>
 </div>
 
